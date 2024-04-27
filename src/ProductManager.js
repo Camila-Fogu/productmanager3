@@ -1,6 +1,6 @@
-const fs = require("fs");
+import fs from "fs";
 
-class ProductManager {
+export default class ProductManager {
   constructor(path) {
     this.path = path;
   }
@@ -67,7 +67,7 @@ class ProductManager {
       const products = await this.getProducts();
       const product = products.find((prod) => prod.id === id);
       if (!product) {
-        return "Producto no encontrado.";
+        return null;
       } else return product;
     } catch (err) {
       console.log(err);
@@ -75,6 +75,7 @@ class ProductManager {
   }
 }
 
+/*
 const manager = new ProductManager("./products.json");
 
 const product1 = {
@@ -121,3 +122,4 @@ const test = async () => {
   console.log(await manager.getProducts());
 };
 test();
+*/
